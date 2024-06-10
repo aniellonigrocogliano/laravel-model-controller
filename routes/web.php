@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController as HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $products = config("products.products");
- 
-    return view('index', compact('products'));
-})->name("index");
-Route::get('/uomo', function () {
-    return view('uomo');
-})->name("uomo");
-Route::get('/donna', function () {
-    return view('donna');
-})->name("donna");
-Route::get('/bambini', function () {
-    return view('bambini');
-})->name("bambini");
+Route::get('/', [HomeController::class, 'index']);
